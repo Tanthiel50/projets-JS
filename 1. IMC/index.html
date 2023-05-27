@@ -15,22 +15,36 @@
   </head>
   <body>
     <div class="container">
-      <h1>Calcul <b>d'IMC</b></h1>
-      <div class="values">
-        <div>
-          <p>Votre taille en centimetre</p>
-          <input placeholder="Votre taille en centimetre" name="" id="taille" type="number">
+      <h1>Calcul <span>d'IMC</span></h1>
+      <form>
+        <div class="inputs-container">
+          <div class="input-group">
+            <label for="height">Votre taille en centimetre</label>
+            <input
+              placeholder="Votre taille en centimetre"
+              class="height-input"
+              id="height"
+              type="number"
+            />
+          </div>
+          <div class="input-group">
+            <label for="weight">Votre poids en kg</label>
+            <input
+              placeholder="Votre poids en kg"
+              class="weight-input"
+              id="weight"
+              type="number"
+            />
+          </div>
         </div>
-        <div>
-          <p>Votre poids en kg</p>
-          <input placeholder="Votre poids en kg" name="" id="poids" type="number">
-        </div>
+        <button type="button" onclick="getValues()">Calculer un IMC</button>
+      </form>
+      <div class="info">
+        <div id="IMC">0</div>
+        <p id="alert">En attente du résultat...</p>
       </div>
-      <button onclick="getValues()">Calculer un IMC</button>
-        <div id="IMC">O</div>
-        <p id="alert">En attente du résultat</p>
     </div>
-    
+
     <script src="app.js"></script>
   </body>
 </html>

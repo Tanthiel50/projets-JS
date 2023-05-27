@@ -9,24 +9,35 @@ const BMIData = [
 
 // IMC = poids en kg / taille² en m
 
-// let taille = document.getElementById("taille").valueAsNumber;
-// let poids = document.getElementById("poids").valueAsNumber;
-// let alert = document.getElementById("alert");
 
 function getValues (){
-  let taille = document.getElementById("taille").valueAsNumber;
-  let poids = document.getElementById("poids").valueAsNumber;
+  let height = document.getElementById("height").valueAsNumber;
+  let weight = document.getElementById("weight").valueAsNumber;
   let alert = document.getElementById("alert");
   let IMC = document.getElementById("IMC");
   let resultIMC;
+  
 
-  if (!poids) {
+  if (!weight) {
     alert.innerHTML = "Veuillez entrer votre poids";
 
-  }else if (!taille) {
+  }else if (!height) {
     alert.innerHTML = "Veuillez entrer votre taille";
   } else {
-    resultIMC = poids * (taille*taille)/10;
+    resultIMC =Math.floor(weight / ((height/100)*(height/100)));
     IMC.innerHTML = resultIMC;
+    for (let i = 0; i < BMIData.length; i++) {
+      const { name, color, range } = BMIData[i];
+      const [minRange, maxRange] = range;
+      
+      if (resultIMC >= minRange && resultIMC < maxRange) {
+        alert.innerHTML = name;
+        alert.style.color = color;
+        
+        return;
+      }
+    }
   }
 }
+
+// CORRECTION
